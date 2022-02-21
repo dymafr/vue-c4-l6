@@ -26,9 +26,12 @@ const produit = reactive({
 const totalPrixHT = computed(() => produit.quantite * produit.prix);
 const totalPrixTTC = computed(() => produit.quantite * produit.prix * 1.2);
 
-watch([() => produit.quantite, produit.prix], (nouvelleVal, ancienneVal) => {
-  produit.nbrModifs++;
-});
+watch(
+  () => [produit.quantite, produit.prix],
+  (nouvelleVal, ancienneVal) => {
+    produit.nbrModifs++;
+  }
+);
 </script>
 
 <style></style>
