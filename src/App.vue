@@ -29,6 +29,7 @@ const totalPrixTTC = computed(() => produit.quantite * produit.prix * 1.2);
 watch(
   () => [produit.quantite, produit.prix],
   (nouvelleVal, ancienneVal) => {
+    console.log(nouvelleVal, ancienneVal);
     produit.nbrModifs++;
   }
 );
